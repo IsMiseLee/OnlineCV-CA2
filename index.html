@@ -84,6 +84,10 @@ nav li {
 
 color:white;
 }
+nav li Time {
+  float:right;
+}
+
 
 .about 
 {
@@ -220,14 +224,17 @@ color:white;
 {
   color:rgb(75, 75, 224);;
 }
+.li .time{
+  float:right;
+}
   </style>
   
 </head>
 <body data-spy="scroll" data-target=".navbar" data-offset="50" onload="CurrentTime()">
   
 <nav class="navbar navbar-inverse navbar-fixed-top">
-  <div class="container-fluid">
-    <div class="navbar-header">
+
+    
       
       <a class="navbar-brand" href="#index"><img src="Pictures/Untitled.png"></a>
     </div>
@@ -240,7 +247,7 @@ color:white;
         <li><a href="#projects">Projects</a></li>      
         <li><a href="#experience">Experience</a></li>
         <li><a href="#interests">Interests</a></li>
-      
+        <li><a  id="Time" ></a></li>
         
 </div>
 </div>
@@ -259,12 +266,14 @@ color:white;
 
         <div id="icons">
         <h3> Contact Me !</h3>
+        <H4>Phone : 0876075517</H4>
        <a href ="https://www.linkedin.com/in/lee-mccarthy/"> <i class="fab fa-linkedin-in" style ="color:rgb(75, 75, 224);font-size: 3em; float: left; margin-left: 4em; "></i></a>
        <a href ="https://github.com/IsMiseLee"><i class="fab fa-github" style ="color:rgb(75, 75, 224);font-size: 3em; float: right; margin-right: 4em;  "></i></a>
 
        <button type="button" class="btn btn-primary" data-toggle="modal"  data-target="#contact" style ="background-color:rgb(75, 75, 224); margin-top: 1em;">
         Send me a Email
       </button>
+      
     </div>
 <div class="modal fade" id="contact" tabindex="-1" role="dialog"  aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered" role="document" style="width: max-content;">
@@ -762,12 +771,12 @@ color:white;
   <h2> Accenture</h2>
   <h3>Business and technology intergration intern</h3>
   <h3>January - September 2019 </h3>
-  <h4>Project: Organizational remediation:                                                                                                                                                                     
-      Data Remediation: During the project I was involved with creating a new process for data cleaning within a client’s systems. 
+  <h4>                                                                                                                                                                  
+     During the project I was involved with creating a new process for data cleaning within a client’s systems. 
       To do this I had to learn how to use the client’s hardware/software along with my peers within the client’s business and Accenture to be able to create a procedure and process to better solve the data quality issue that the client was facing. 
       Taking part in meetings and presenting my work weekly to a manager. Have faced many deadlines and delivered on time. 
       
-       Data analysis: The project was split into phases, each phase I was tasked with using excel to carry out data analysis using functions such as VLOOKUP, LEFT and SUM. 
+      The project was split into phases, each phase I was tasked with using excel to carry out data analysis using functions such as VLOOKUP, LEFT and SUM. 
         Creating pivot tables to help visualize our changes to show to the client. 
       
          Training: Through the project we where joined by an offshore team. At the start we where tasked with training them on the client systems and integrating them into our project and project team  </h4>
@@ -779,10 +788,10 @@ color:white;
          <h3>Customer Assistant</h3>
          <h3>April 2018 – September 2018 </h3>
         <h4>
-            Main Responsibilities 
-            Teamwork: I worked within a team to complete tasks assigned by the duty manager. We are tasked with cleaning theatres after a movie, cleaning toilets and complete privacy checks within a strict time limit  
+           
+            I worked within a team to complete tasks assigned by the duty manager. We are tasked with cleaning theatres after a movie, cleaning toilets and complete privacy checks within a strict time limit  
             
-            Dealing with customers: Whenever a customer would have a query about anything regarding the cinema, I was expected to give excellent customer service and deal with it on my own, but if I needed help, we needed to contact another member of staff or a manager 
+           Whenever a customer would have a query about anything regarding the cinema, I was expected to give excellent customer service and deal with it on my own, but if I needed help, we needed to contact another member of staff or a manager 
             
         </h4>
       </div>
@@ -883,20 +892,40 @@ color:white;
       function CurrentTime()
       {
         var todaysDate = new Date();
-        var hours = todaysDate.getDate();
+        var hours = todaysDate.getHours();
         var minutes = todaysDate.getMinutes();
-        var seconds =todaysDate.getSeconds();
-
+        var day = todaysDate.getDate()
+        var next;
         if(minutes < 10)
         {
-          minutes="0" +i
+          minutes="0" +minutes
         }
-        if(seconds < 10)
+        
+        if(day==1)
         {
-          seconds="0" +i
+          next = "st";
+        }else if(day==2)
+        {
+          next = "nd";
+        }else if(day==3){
+          next="rd";
+        }else if(day==21)
+        {
+          next = "st";
+        }else if(day==22)
+        {
+          next = "nd";
+        }else if(day==23)
+        {
+        next="rd";
+        }else{
+          next ="th"
         }
-        document.getElementById('Time').innerHTML = hours + " "+minutes+" "+seconds
 
+
+
+        document.getElementById('Time').innerHTML = "Current Time : "+ hours + ":"+minutes +"\xa0\xa0\xa0\xa0\xa0"+" The date is the " + day +next
+        var t = setTimeout(CurrentTime,500);
       }
 
   

@@ -1,0 +1,14 @@
+Twitter Bootstrap features:
+
+Modal
+Columns
+Row
+Navbar
+Carousel
+Glyphicon
+Panel-collapse
+Table
+Navbar-brand
+
+
+URL: https://ismiselee.github.io/OnlineCV-CA2/
